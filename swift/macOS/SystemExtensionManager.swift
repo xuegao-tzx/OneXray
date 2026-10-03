@@ -156,7 +156,7 @@ private final class ExtensionRequestDriver: NSObject, OSSystemExtensionRequestDe
         }
     }
 
-    private static let delegateQueue = DispatchQueue(label: "net.yuandev.onexray.system-extension")
+    private static let delegateQueue = DispatchQueue(label: "ink.xcl.onexray.system-extension")
 
     private let forceReplace: Bool
     private var waiter: Waiter = .none

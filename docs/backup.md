@@ -9,7 +9,7 @@
 
 | 平台 | 目标与边界 |
 | --- | --- |
-| iOS / macOS / macOS SE | `iCloud.net.yuandev.onexray` 的 `Documents/OneXray-backup.json`，`icloud_storage_plus` 协调读写；不另写 Swift/Pigeon 内容 I/O |
+| iOS / macOS / macOS SE | `iCloud.ink.xcl.onexray` 的 `Documents/OneXray-backup.json`，`icloud_storage_plus` 协调读写；不另写 Swift/Pigeon 内容 I/O |
 | Android | SAF 单文档 URI，`saf_stream` 内容读写；Pigeon 只选择/创建、检查持久读写授权和释放旧目标授权；展示提供商实际文件名 |
 | Windows EXE / ZIP / MSIX | 用户选择的 OneDrive 同步目录，普通文件读取与替换；不接 OAuth/Graph、不要求包身份 |
 

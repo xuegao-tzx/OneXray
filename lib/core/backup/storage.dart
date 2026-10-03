@@ -12,7 +12,7 @@ import 'package:onexray/core/tools/atomic_file.dart';
 import 'package:path/path.dart' as p;
 import 'package:saf_stream/saf_stream.dart';
 
-const backupContainerId = 'iCloud.net.yuandev.onexray';
+const backupContainerId = 'iCloud.ink.xcl.onexray';
 const backupCloudPath = 'Documents/$backupFileName';
 
 class BackupTarget {

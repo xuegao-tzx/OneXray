@@ -10,7 +10,7 @@ class AndroidAutomationService {
   final AndroidAutomationHostApi _api;
   final bool _supported;
 
-  static const packageName = 'net.yuandev.onexray';
+  static const packageName = 'ink.xcl.onexray';
   static const receiver = '$packageName.automation.VpnAutomationReceiver';
   static const startAction = '$packageName.action.START_VPN';
   static const stopAction = '$packageName.action.STOP_VPN';

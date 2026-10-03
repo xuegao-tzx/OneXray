@@ -64,8 +64,8 @@
             android:exported="true"
             android:process=":native">
             <intent-filter>
-                <action android:name="net.yuandev.onexray.action.START_VPN" />
-                <action android:name="net.yuandev.onexray.action.STOP_VPN" />
+                <action android:name="ink.xcl.onexray.action.START_VPN" />
+                <action android:name="ink.xcl.onexray.action.STOP_VPN" />
             </intent-filter>
         </receiver>
         <receiver

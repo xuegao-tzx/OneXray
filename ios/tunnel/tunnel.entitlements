@@ -8,7 +8,7 @@
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.net.yuandev.onexray</string>
+		<string>group.ink.xcl.onexray</string>
 	</array>
 </dict>
 </plist>

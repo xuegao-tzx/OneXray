@@ -20,7 +20,7 @@ val keystoreProperties: Properties? = if (keystoreFile.exists()) {
 val splitPerAbi = providers.gradleProperty("split-per-abi").orNull?.toBoolean() == true
 
 android {
-    namespace = "net.yuandev.onexray"
+    namespace = "ink.xcl.onexray"
     compileSdk = 37
     ndkVersion = "30.0.16248370"
 
@@ -31,7 +31,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "net.yuandev.onexray"
+        applicationId = "ink.xcl.onexray"
         minSdk = 29
         targetSdk = 37
         versionCode = flutter.versionCode
