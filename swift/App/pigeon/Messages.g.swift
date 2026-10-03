@@ -521,6 +521,61 @@ struct AndroidAppInfo: Hashable, CustomStringConvertible {
   }
 }
 
+/// One server row for the macOS menu bar. Display and latency are resolved in
+/// the service layer so the native menu never parses node data itself.
+///
+/// Generated class from Pigeon that represents data sent in messages.
+struct MenuServerItem: Hashable, CustomStringConvertible {
+  var id: String
+  var remark: String
+  var isCurrent: Bool
+  /// Last measured latency in milliseconds, or null when it has never been
+  /// measured or the measurement failed.
+  var delay: Int64? = nil
+
+
+  // swift-format-ignore: AlwaysUseLowerCamelCase
+  static func fromList(_ pigeonVar_list: [Any?]) -> MenuServerItem? {
+    let id = pigeonVar_list[0] as! String
+    let remark = pigeonVar_list[1] as! String
+    let isCurrent = pigeonVar_list[2] as! Bool
+    let delay: Int64? = nilOrValue(pigeonVar_list[3])
+
+    return MenuServerItem(
+      id: id,
+      remark: remark,
+      isCurrent: isCurrent,
+      delay: delay
+    )
+  }
+  func toList() -> [Any?] {
+    return [
+      id,
+      remark,
+      isCurrent,
+      delay,
+    ]
+  }
+  static func == (lhs: MenuServerItem, rhs: MenuServerItem) -> Bool {
+    if Swift.type(of: lhs) != Swift.type(of: rhs) {
+      return false
+    }
+    return MessagesPigeonInternal.deepEquals(lhs.id, rhs.id) && MessagesPigeonInternal.deepEquals(lhs.remark, rhs.remark) && MessagesPigeonInternal.deepEquals(lhs.isCurrent, rhs.isCurrent) && MessagesPigeonInternal.deepEquals(lhs.delay, rhs.delay)
+  }
+
+  func hash(into hasher: inout Hasher) {
+    hasher.combine("MenuServerItem")
+    MessagesPigeonInternal.deepHash(value: id, hasher: &hasher)
+    MessagesPigeonInternal.deepHash(value: remark, hasher: &hasher)
+    MessagesPigeonInternal.deepHash(value: isCurrent, hasher: &hasher)
+    MessagesPigeonInternal.deepHash(value: delay, hasher: &hasher)
+  }
+
+  public var description: String {
+    return "MenuServerItem(id: \(String(describing: id)), remark: \(String(describing: remark)), isCurrent: \(String(describing: isCurrent)), delay: \(String(describing: delay)))"
+  }
+}
+
 private class MessagesPigeonCodecReader: FlutterStandardReader {
   override func readValue(ofType type: UInt8) -> Any? {
     switch type {
@@ -568,6 +623,8 @@ private class MessagesPigeonCodecReader: FlutterStandardReader {
       return NativeVpnCommandResult.fromList(self.readValue() as! [Any?])
     case 140:
       return AndroidAppInfo.fromList(self.readValue() as! [Any?])
+    case 141:
+      return MenuServerItem.fromList(self.readValue() as! [Any?])
     default:
       return super.readValue(ofType: type)
     }
@@ -611,6 +668,9 @@ private class MessagesPigeonCodecWriter: FlutterStandardWriter {
       super.writeValue(value.toList())
     } else if let value = value as? AndroidAppInfo {
       super.writeByte(140)
+      super.writeValue(value.toList())
+    } else if let value = value as? MenuServerItem {
+      super.writeByte(141)
       super.writeValue(value.toList())
     } else {
       super.writeValue(value)
@@ -1075,6 +1135,9 @@ class BackupHostApiSetup {
 /// Generated protocol from Pigeon that represents Flutter messages that can be called from Swift.
 protocol BridgeFlutterApiProtocol {
   func vpnStatusChanged(status statusArg: VpnStatus, completion: @escaping (Result<Void, PigeonError>) -> Void)
+  func listMenuServers(completion: @escaping (Result<[MenuServerItem], PigeonError>) -> Void)
+  func speedTestMenuServers(completion: @escaping (Result<[MenuServerItem], PigeonError>) -> Void)
+  func selectMenuServer(id idArg: String, completion: @escaping (Result<Void, PigeonError>) -> Void)
 }
 class BridgeFlutterApi: BridgeFlutterApiProtocol {
   private let binaryMessenger: FlutterBinaryMessenger
@@ -1090,6 +1153,66 @@ class BridgeFlutterApi: BridgeFlutterApiProtocol {
     let channelName: String = "dev.flutter.pigeon.onexray.BridgeFlutterApi.vpnStatusChanged\(messageChannelSuffix)"
     let channel = FlutterBasicMessageChannel(name: channelName, binaryMessenger: binaryMessenger, codec: codec)
     channel.sendMessage([statusArg] as [Any?]) { response in
+      guard let listResponse = response as? [Any?] else {
+        completion(.failure(createConnectionError(withChannelName: channelName)))
+        return
+      }
+      if listResponse.count > 1 {
+        let code: String = listResponse[0] as! String
+        let message: String? = nilOrValue(listResponse[1])
+        let details: String? = nilOrValue(listResponse[2])
+        completion(.failure(PigeonError(code: code, message: message, details: details)))
+      } else {
+        completion(.success(()))
+      }
+    }
+  }
+  func listMenuServers(completion: @escaping (Result<[MenuServerItem], PigeonError>) -> Void) {
+    let channelName: String = "dev.flutter.pigeon.onexray.BridgeFlutterApi.listMenuServers\(messageChannelSuffix)"
+    let channel = FlutterBasicMessageChannel(name: channelName, binaryMessenger: binaryMessenger, codec: codec)
+    channel.sendMessage(nil) { response in
+      guard let listResponse = response as? [Any?] else {
+        completion(.failure(createConnectionError(withChannelName: channelName)))
+        return
+      }
+      if listResponse.count > 1 {
+        let code: String = listResponse[0] as! String
+        let message: String? = nilOrValue(listResponse[1])
+        let details: String? = nilOrValue(listResponse[2])
+        completion(.failure(PigeonError(code: code, message: message, details: details)))
+      } else if MessagesPigeonInternal.isNullish(listResponse[0]) {
+        completion(.failure(PigeonError(code: "null-error", message: "Flutter api returned null value for non-null return value.", details: "")))
+      } else {
+        let result = listResponse[0] as! [MenuServerItem]
+        completion(.success(result))
+      }
+    }
+  }
+  func speedTestMenuServers(completion: @escaping (Result<[MenuServerItem], PigeonError>) -> Void) {
+    let channelName: String = "dev.flutter.pigeon.onexray.BridgeFlutterApi.speedTestMenuServers\(messageChannelSuffix)"
+    let channel = FlutterBasicMessageChannel(name: channelName, binaryMessenger: binaryMessenger, codec: codec)
+    channel.sendMessage(nil) { response in
+      guard let listResponse = response as? [Any?] else {
+        completion(.failure(createConnectionError(withChannelName: channelName)))
+        return
+      }
+      if listResponse.count > 1 {
+        let code: String = listResponse[0] as! String
+        let message: String? = nilOrValue(listResponse[1])
+        let details: String? = nilOrValue(listResponse[2])
+        completion(.failure(PigeonError(code: code, message: message, details: details)))
+      } else if MessagesPigeonInternal.isNullish(listResponse[0]) {
+        completion(.failure(PigeonError(code: "null-error", message: "Flutter api returned null value for non-null return value.", details: "")))
+      } else {
+        let result = listResponse[0] as! [MenuServerItem]
+        completion(.success(result))
+      }
+    }
+  }
+  func selectMenuServer(id idArg: String, completion: @escaping (Result<Void, PigeonError>) -> Void) {
+    let channelName: String = "dev.flutter.pigeon.onexray.BridgeFlutterApi.selectMenuServer\(messageChannelSuffix)"
+    let channel = FlutterBasicMessageChannel(name: channelName, binaryMessenger: binaryMessenger, codec: codec)
+    channel.sendMessage([idArg] as [Any?]) { response in
       guard let listResponse = response as? [Any?] else {
         completion(.failure(createConnectionError(withChannelName: channelName)))
         return

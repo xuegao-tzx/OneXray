@@ -13,6 +13,7 @@ class MainFlutterWindow: NSWindow {
             let binaryMessenger = flutterViewController.engine.binaryMessenger
             let flutterApi = AppFlutterApi(binaryMessenger: binaryMessenger)
             BridgeHostApiSetup.setUp(binaryMessenger: binaryMessenger, api: AppHostApi(flutterApi: flutterApi))
+            MenuBarController.shared?.attach(to: flutterApi)
 
             RegisterGeneratedPlugins(registry: flutterViewController)
 

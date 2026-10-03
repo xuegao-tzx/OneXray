@@ -4,6 +4,13 @@ import FlutterMacOS
 @main
 @MainActor
 class AppDelegate: FlutterAppDelegate {
+    private let menuBar = MenuBarController()
+
+    override func applicationDidFinishLaunching(_ notification: Notification) {
+        super.applicationDidFinishLaunching(notification)
+        menuBar.install()
+    }
+
     override func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return false
     }
