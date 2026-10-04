@@ -27,7 +27,7 @@ final class NotificationService {
     final WindowsInitializationSettings initializationSettingsWindows =
         WindowsInitializationSettings(
           appName: 'OneXray',
-          appUserModelId: 'net.yuandev.onexray',
+          appUserModelId: 'ink.xcl.onexray',
           // Search online for GUID generators to make your own
           guid: '835d7bbd-85bb-4c73-97f8-ce0740f151a7',
         );
@@ -79,7 +79,7 @@ final class NotificationService {
     if (AppPlatform.isAndroid) {
       const details = NotificationDetails(
         android: AndroidNotificationDetails(
-          'net.yuandev.onexray',
+          'ink.xcl.onexray',
           'OneXray',
           channelDescription: 'OneXray',
           importance: Importance.defaultImportance,

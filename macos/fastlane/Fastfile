@@ -17,8 +17,8 @@ platform :mac do
     )
 
     [
-      ['net.yuandev.onexray', 'OneXraymacOS'],
-      ['net.yuandev.onexray.tun', 'OneXraymacOSTun']
+      ['ink.xcl.onexray', 'OneXraymacOS'],
+      ['ink.xcl.onexray.tun', 'OneXraymacOSTun']
     ].each do |app_identifier, provisioning_name|
       get_provisioning_profile(
         api_key: api_key,
@@ -41,8 +41,8 @@ platform :mac do
         export_options: {
           method: 'app-store-connect',
           provisioningProfiles: {
-            'net.yuandev.onexray' => 'OneXraymacOS',
-            'net.yuandev.onexray.tun' => 'OneXraymacOSTun'
+            'ink.xcl.onexray' => 'OneXraymacOS',
+            'ink.xcl.onexray.tun' => 'OneXraymacOSTun'
           }
         },
         installer_cert_name: installer_cert_name

@@ -61,7 +61,7 @@ class AppUpdateService {
   static const _appStoreUrl =
       "https://apps.apple.com/us/app/onexray/id6745748773";
   static const _googlePlayUrl =
-      "https://play.google.com/store/apps/details?id=net.yuandev.onexray";
+      "https://play.google.com/store/apps/details?id=ink.xcl.onexray";
   static const _automaticCheckInterval = Duration(days: 1);
 
   Future<AppUpdateCheckResult> checkForUpdate() async {

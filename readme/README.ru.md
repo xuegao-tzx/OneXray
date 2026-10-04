@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://apps.apple.com/us/app/onexray/id6745748773">App Store</a> ·
-  <a href="https://play.google.com/store/apps/details?id=net.yuandev.onexray">Google Play</a> ·
+  <a href="https://play.google.com/store/apps/details?id=ink.xcl.onexray">Google Play</a> ·
   <a href="https://apps.microsoft.com/detail/9NJ0MVHW215D">Microsoft Store</a>
 </p>
 
@@ -74,7 +74,7 @@ OneXray — клиент Xray-core с открытым исходным кодо
 | iPhone / iPad | iOS / iPadOS 15+ | [App Store](https://apps.apple.com/us/app/onexray/id6745748773) · [IPA](https://github.com/OneXray/OneXray/releases/latest/download/OneXray-ios.ipa) |
 | macOS | macOS 13+, Apple silicon или Intel | [Mac App Store](https://apps.apple.com/us/app/onexray/id6745748773) |
 | macOS — OneXraySE | macOS 13+, Apple silicon или Intel | [Homebrew](https://formulae.brew.sh/cask/onexrayse) · [Universal ZIP](https://github.com/OneXray/OneXray/releases/latest/download/OneXray-macos-universal.zip) |
-| Телефоны / планшеты Android | Android 10+, arm64-v8a или x86_64 | [Google Play](https://play.google.com/store/apps/details?id=net.yuandev.onexray) · [Универсальный APK](https://github.com/OneXray/OneXray/releases/latest/download/OneXray-android-universal.apk) |
+| Телефоны / планшеты Android | Android 10+, arm64-v8a или x86_64 | [Google Play](https://play.google.com/store/apps/details?id=ink.xcl.onexray) · [Универсальный APK](https://github.com/OneXray/OneXray/releases/latest/download/OneXray-android-universal.apk) |
 | Windows x64 | Windows 10 20H2+ | [Microsoft Store](https://apps.microsoft.com/detail/9NJ0MVHW215D) · [EXE (winget)](#примечания-по-установке) · [ZIP](https://github.com/OneXray/OneXray/releases/latest/download/OneXray-windows-amd64.zip) |
 | Windows ARM64 | Windows 11 | [Microsoft Store](https://apps.microsoft.com/detail/9NJ0MVHW215D) · [EXE (winget)](#примечания-по-установке) · [ZIP](https://github.com/OneXray/OneXray/releases/latest/download/OneXray-windows-arm64.zip) |
 | Linux x86_64 | glibc 2.39+ | [DEB](https://github.com/OneXray/OneXray/releases/latest/download/OneXray-linux-x86_64.deb) · [ZIP](https://github.com/OneXray/OneXray/releases/latest/download/OneXray-linux-x86_64.zip) |

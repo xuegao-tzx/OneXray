@@ -5,8 +5,8 @@ import 'package:pigeon/pigeon.dart';
     dartOut: 'lib/core/pigeon/messages.g.dart',
     dartOptions: DartOptions(),
     kotlinOut:
-        'android/app/src/main/kotlin/net/yuandev/onexray/pigeon/Messages.g.kt',
-    kotlinOptions: KotlinOptions(package: "net.yuandev.onexray.pigeon"),
+        'android/app/src/main/kotlin/ink/xcl/onexray/pigeon/Messages.g.kt',
+    kotlinOptions: KotlinOptions(package: "ink.xcl.onexray.pigeon"),
     swiftOut: 'swift/App/pigeon/Messages.g.swift',
     swiftOptions: SwiftOptions(),
     dartPackageName: 'onexray',
@@ -190,8 +190,37 @@ class AndroidAppInfo {
   final String packageName;
 }
 
+/// One server row for the macOS menu bar. Display and latency are resolved in
+/// the service layer so the native menu never parses node data itself.
+class MenuServerItem {
+  MenuServerItem({
+    required this.id,
+    required this.remark,
+    required this.isCurrent,
+    this.delay,
+  });
+
+  final String id;
+  final String remark;
+  final bool isCurrent;
+
+  /// Last measured latency in milliseconds, or null when it has never been
+  /// measured or the measurement failed.
+  final int? delay;
+}
+
 @FlutterApi()
 abstract class BridgeFlutterApi {
   @asyncCallback
   void vpnStatusChanged(VpnStatus status);
+
+  //macOS menu bar=================
+  @asyncCallback
+  List<MenuServerItem> listMenuServers();
+
+  @asyncCallback
+  List<MenuServerItem> speedTestMenuServers();
+
+  @asyncCallback
+  void selectMenuServer(String id);
 }

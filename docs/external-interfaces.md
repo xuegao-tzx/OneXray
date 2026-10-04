@@ -76,10 +76,10 @@ API 不下载/导入/保存资产、不检查 DB 重名/数量、不选择节点
 | 字段 | 值 |
 | --- | --- |
 | 类型 | Broadcast Receiver |
-| Package | `net.yuandev.onexray` |
-| Class | `net.yuandev.onexray.automation.VpnAutomationReceiver` |
-| START | `net.yuandev.onexray.action.START_VPN` |
-| STOP | `net.yuandev.onexray.action.STOP_VPN` |
+| Package | `ink.xcl.onexray` |
+| Class | `ink.xcl.onexray.automation.VpnAutomationReceiver` |
+| START | `ink.xcl.onexray.action.START_VPN` |
+| STOP | `ink.xcl.onexray.action.STOP_VPN` |
 | Extra | `token`，精确 String |
 
 仅接受两个动作，不接受配置路径、节点选择、回调或调用者自报身份。
